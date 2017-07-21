@@ -39,7 +39,7 @@ def text_objects(text,font):
 
 def print_text(text):
     #Malt Text zentriert
-    my_font = pygame.font.Font('vgafix.fon',1515)
+    my_font = pygame.font.Font('freesansbold.ttf',20)
     TextSurf, TextRect = text_objects(text, my_font)
     TextRect.center = ((display_width/2),(display_height/2))
     screen.blit(TextSurf,TextRect)
@@ -65,11 +65,17 @@ def csv_handler(csvfilename):
                 filenames.append(row[0])
     return filenames
 
-def draw_button(m,bx,by,bw,bh,c1,c2):
+def draw_button(m,bx,by,bw,bh,c1,c2,t):
+    #wenn maus im rechteck, dann andere Farbe -> interaktiv
     if bx + bw > m[0] > bx and by + bh > m[1] > by:
         pygame.draw.rect(screen,c1,(bx,by,bw,bh))
     else:
         pygame.draw.rect(screen,c2,(bx,by,bw,bh))
+    my_font = pygame.font.Font("freesansbold.ttf",20)
+    textSurf, textRect = text_objects(t,my_font)
+    #center of button
+    textRect.center = ((bx+(bw/2)),(by+(bh/2)))
+    screen.blit(textSurf,textRect)
 
 def menu_loop():
     menuExit = False
@@ -86,8 +92,8 @@ def menu_loop():
         #hier soll ein button entstehen
         mouse = pygame.mouse.get_pos()
         #print(mouse_pos)
-        draw_button(mouse,150,450,100,50,bright_skyblue,skyblue)
-        draw_button(mouse,550,450,100,50,bright_skyblue,skyblue)
+        draw_button(mouse,150,450,100,50,bright_skyblue,skyblue,"Start")
+        draw_button(mouse,550,450,100,50,bright_skyblue,skyblue,"Start")
 
         print_text("Press any key!")
         pygame.display.update()
