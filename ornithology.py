@@ -12,6 +12,7 @@ white = (255,255,255)
 red = (255,0,0)
 black = (0,0,0)
 skyblue = (112,128,144)
+bright_skyblue = (130,140,200)
 #textinput
 textinput = pygame_textinput.TextInput()
 textinput.set_text_color(white)
@@ -64,6 +65,12 @@ def csv_handler(csvfilename):
                 filenames.append(row[0])
     return filenames
 
+def draw_button(m,bx,by,bw,bh,c1,c2):
+    if bx + bw > m[0] > bx and by + bh > m[1] > by:
+        pygame.draw.rect(screen,c1,(bx,by,bw,bh))
+    else:
+        pygame.draw.rect(screen,c2,(bx,by,bw,bh))
+
 def menu_loop():
     menuExit = False
     while not menuExit:
@@ -74,10 +81,17 @@ def menu_loop():
                 quit()
             if event.type == pygame.KEYDOWN:
                 menuExit = True
+
         screen.fill(white)
+        #hier soll ein button entstehen
+        mouse = pygame.mouse.get_pos()
+        #print(mouse_pos)
+        draw_button(mouse,150,450,100,50,bright_skyblue,skyblue)
+        draw_button(mouse,550,450,100,50,bright_skyblue,skyblue)
+
         print_text("Press any key!")
         pygame.display.update()
-        clock.tick(30)
+        clock.tick(15)
 
 def game_loop():
     #neues Spiel
