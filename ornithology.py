@@ -27,6 +27,7 @@ def get_bird_name(filename):
 def print_image(filename):
     #Malt das Bild zentriert
     image = pygame.image.load(filename)
+    image = pygame.transform.scale(image,(800,600))
     image_rect = image.get_rect()
     w = image_rect.width//2
     h = image_rect.height//2
@@ -59,9 +60,9 @@ def csv_handler(csvfilename):
         readCSV = csv.reader(csvfile, delimiter=';')
         filenames = []
         for row in readCSV:
-            if row[3] == '1':#schwierigkeit 1
-                if row[0].endswith(".jpg"):#sicher ist sicher
-                    filenames.append(row[0])
+            #if row[3] == '1':#schwierigkeit 1
+            if row[0].endswith(".JPG"):#sicher ist sicher
+                filenames.append(row[0])
     return filenames
 
 def menu_loop():
