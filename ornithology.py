@@ -6,8 +6,8 @@ display_height = 600
 screen = pygame.display.set_mode((display_width,display_height))
 pygame.display.set_caption('Ornithology')
 #filename birds
-folder_images = "images\\"
-folder = "D:\\Dateien\\Informatik\\Python\\Ornithology\\"
+folder_images = "images/"
+folder = ""
 #colors
 white = (255,255,255)
 red = (255,0,0)
