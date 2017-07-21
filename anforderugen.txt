@@ -1,1 +1,24 @@
-Menu, Spiel start bla la
+coole Ideen erwünscht! :D
+
+Programmstart: Menu 
+    Schneller Start
+    Benutzerdefiniert
+    Verlassen
+
+Benutzerdefiniert:
+    Schwierigkeit Checkboxmäßig auswählen
+    Vogelordnung selektieren
+    Anzahl Bilder
+
+Grundspiel:
+    Namen eingeben
+    15x{Foto von einem Vogel
+    vier - acht Antwortmöglichkeiten
+    Punkte für richtige Antwort je nach Schwierigkeit Vogel
+    nächster Vogel}
+    
+Ende:
+    1. Niclas: 1000 Punkte
+    2. Jörg: 225 Punkte
+    3. ....
+   
