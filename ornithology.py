@@ -1,4 +1,4 @@
-import pygame, time, os, pygame_textinput, random, csv
+import pygame, pygame_textinput, random, csv
 pygame.init()
 #screen
 display_width = 800
@@ -7,7 +7,6 @@ screen = pygame.display.set_mode((display_width,display_height))
 pygame.display.set_caption('Ornithology')
 #filename birds
 folder_images = "images/"
-folder = ""
 #colors
 white = (255,255,255)
 red = (255,0,0)
