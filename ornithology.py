@@ -20,6 +20,27 @@ textinput.set_cursor_color(white)
 #clock
 clock = pygame.time.Clock()
 
+class Bird:
+    def __init__(self,filename,name,order,difficulty):
+        #in python gint es keine expliziten konstruktoren
+        #__name meint private, _name protected, name public 
+        self.__filename=filename 
+        self.__name=name
+        self.__order=order
+        self.__difficulty=difficulty
+
+    def get_filename(self):
+        return self.__filename
+
+    def get_name(self):
+        return self.__name
+
+    def get_order(self):
+        return self.__order
+
+    def get_difficulty(self):
+        return self.__difficulty
+
 def get_bird_name(filename):
     #austerfischer_01.jpg -> Austernfischer
     return filename.split('_')[0].capitalize()
@@ -55,15 +76,14 @@ def random_list(l):
         new_list.append(l.pop(random.randint(0,len(l)-1)))
     return new_list
 
-def csv_handler(csvfilename):
-    with open(csvfilename) as csvfile:
+def csv_to_birds(csvfilename):
+    with open(csvfilename,'r') as csvfile:
         readCSV = csv.reader(csvfile, delimiter=';')
-        filenames = []
+        birds = []
         for row in readCSV:
-            #if row[3] == '1':#schwierigkeit 1
-            if row[0].endswith(".JPG"):#sicher ist sicher
-                filenames.append(row[0])
-    return filenames
+            if row[0] != "filename":
+                birds.append(Bird(row[0],row[1],row[2],row[3]))
+    return birds
 
 def draw_button(m,bx,by,bw,bh,c1,c2,t):
     #wenn maus im rechteck, dann andere Farbe -> interaktiv
@@ -105,7 +125,7 @@ def game_loop():
     answer = ""
     score = 0
     #Liste dateinamen im Ordner images
-    birds = csv_handler("birds.csv")
+    birds = csv_to_birds("birds.csv")
     #
     #birds = os.listdir(folder_images)
     bird = birds.pop(len(birds)-1)
