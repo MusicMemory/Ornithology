@@ -1,4 +1,8 @@
-import pygame, pygame_textinput, random, csv
+import pygame
+import pygame_textinput
+import random
+import csv
+import Bird
 pygame.init()
 #screen
 display_width = 800
@@ -19,27 +23,6 @@ textinput.set_text_color(white)
 textinput.set_cursor_color(white)
 #clock
 clock = pygame.time.Clock()
-
-class Bird:
-    def __init__(self,filename,name,order,difficulty):
-        #in python gint es keine expliziten konstruktoren
-        #__name meint private, _name protected, name public 
-        self.__filename=filename 
-        self.__name=name
-        self.__order=order
-        self.__difficulty=difficulty
-
-    def get_filename(self):
-        return self.__filename
-
-    def get_name(self):
-        return self.__name
-
-    def get_order(self):
-        return self.__order
-
-    def get_difficulty(self):
-        return self.__difficulty
 
 def get_bird_name(filename):
     #austerfischer_01.jpg -> Austernfischer
@@ -82,7 +65,7 @@ def csv_to_birds(csvfilename):
         birds = []
         for row in readCSV:
             if row[0] != "filename":
-                birds.append(Bird(row[0],row[1],row[2],row[3]))
+                birds.append(Bird.Bird(row[0],row[1],row[2],row[3]))
     return birds
 
 def draw_button(m,bx,by,bw,bh,c1,c2,t):
