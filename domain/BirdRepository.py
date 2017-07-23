@@ -1,19 +1,21 @@
 import csv
+
+from base.Singleton import Singleton
 from domain.Bird import Bird
 
-class BirdRepository:
+class BirdRepository(metaclass=Singleton):
 
     def __init__(self, csvfile_name):
         self.__birds = []
         self.init(csvfile_name)
 
-    def safeBird(self, id, bird):
+    def safe_bird(self, id, bird):
         self.__birds[id] = bird
 
-    def findBirdById(self, id):
+    def find_bird_by_id(self, id):
         return self.__birds[id]
 
-    def noOfBirds(self):
+    def no_of_birds(self):
         return len(self.__birds)
 
     def init(self, csvfile_name):
@@ -25,7 +27,14 @@ class BirdRepository:
                     self.__birds.append(bird)
 
 
+##############################
+# TEST-CODE
+##############################
+
 # repo = BirdRepository("../birds.csv")
-# for i in range(0, repo.noOfBirds()):
-#     print(repo.findBirdById(i))
+# repo2 = BirdRepository()
+# print(repo == repo2)
+# for i in range(0, repo.no_of_birds()):
+#     print(repo.find_bird_by_id(i))
+
 
