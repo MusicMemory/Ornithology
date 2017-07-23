@@ -3,6 +3,7 @@ import random
 from domain.BirdRepository import BirdRepository
 
 class Game:
+
     """
     Erstellt ein Spiel: Der Konstruktor wählt zufällig no_questions (verschiedene) Vögel (-Ids)
     aus und dazu jeweils no_answers mögliche Anworten (in Form von Vogel-Ids), wobei genau eine
@@ -23,12 +24,10 @@ class Game:
                     break;
 
             answer_list = []
-            while True:
+            while len(answer_list) < no_answers:
                 answer_id_candidate = random.randint(0, no_images-1)
                 if (self.__is_answer_different_from_previous(q, answer_list, answer_id_candidate)):
                     answer_list.append(answer_id_candidate)
-                if (len(answer_list) == no_answers):
-                    break;
 
             right_answer = random.randint(0, no_answers-1)
             answer_list[right_answer] = self.__question_bird_ids[q]
@@ -48,6 +47,8 @@ class Game:
     def get_bird_id_of_answer_of_question_(self, q, a):
         return self.__answer_bird_ids[q][a]
 
+    # Testet, ob die a-te Antwort (von Benutzer gewählt) für der q-te Frage
+    # richtig ist.
     def is_correct(self, q, a):
         return self.__question_bird_ids[q] == self.__answer_bird_ids[q][a]
 
