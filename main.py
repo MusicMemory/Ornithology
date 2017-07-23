@@ -52,10 +52,12 @@ for q in range(0, no_questions):
             if event.type == pygame.KEYDOWN:
                 try:
                     answer = key_map[event.key]
-                    keypressed = True
+                    if answer >= no_answers:
+                        continue
                 except:
                     continue
 
+                keypressed = True
                 if game.is_correct(q, answer):
                     gui_proc.alert(True, bird.get_difficulty())
                     game.add_points(bird.get_difficulty())
