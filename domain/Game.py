@@ -23,15 +23,22 @@ class Game:
                     self.__question_bird_ids[q] = image_id_candidate
                     break;
 
+            # Erst werden no_answers falsche Antworten gerwählt
+            #
             answer_list = []
             while len(answer_list) < no_answers:
                 answer_id_candidate = random.randint(0, no_images-1)
                 if (self.__is_answer_different_from_previous(q, answer_list, answer_id_candidate)):
                     answer_list.append(answer_id_candidate)
 
+            # Anschließend wird die richtige Antwort an einer zufälligen Stelle
+            # der bisherigen (falschen) Antworten überschrieben
+            #
             right_answer = random.randint(0, no_answers-1)
             answer_list[right_answer] = self.__question_bird_ids[q]
 
+            # Die fertige Antwortliste mit einer richitigen und dem Rest falschen
+            # Antworten in die Member-Variabele...
             for a in range(0, no_answers):
                 self.__answer_bird_ids[q][a] = answer_list[a]
 
