@@ -12,6 +12,10 @@ width_answer = 400;
 
 class GUIProcessor:
 
+    """
+    Hier ist noch einiges im Argen (hart-kodiert)!!!
+    """
+
     def __init__(self, width, height):
         self.screen = screen = pygame.display.set_mode((width, height))
         self.width = width
