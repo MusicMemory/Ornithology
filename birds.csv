@@ -1,8 +1,8 @@
 filename;name;order;difficulty
-alpenstrandlaeufer_01.JPG;Alpenstrandlaeufer;watvogel;1
-alpenstrandlaeufer_02.JPG;Alpenstrandlaeufer;watvogel;2
-alpenstrandlaeufer_03.JPG;Alpenstrandlaeufer;watvogel;3
-alpenstrandlaeufer_04.JPG;Alpenstrandlaeufer;watvogel;1
+alpenstrandlaeufer_01.JPG;Alpenstrandläufer;watvogel;1
+alpenstrandlaeufer_02.JPG;Alpenstrandläufer;watvogel;2
+alpenstrandlaeufer_03.JPG;Alpenstrandläufer;watvogel;3
+alpenstrandlaeufer_04.JPG;Alpenstrandläufer;watvogel;1
 amsel_01.JPG;Amsel;singvogel;2
 amsel_02.JPG;Amsel;singvogel;3
 austernfischer_01.JPG;Austernfischer;watvogel;1
@@ -19,18 +19,18 @@ bergfink_01.JPG;Bergfink;singvogel;2
 bergfink_02.JPG;Bergfink;singvogel;3
 bergfink_03.JPG;Bergfink;singvogel;1
 bergfink_04.JPG;Bergfink;singvogel;2
-berghaenfling_01.JPG;Berghaenfling;singvogel;1
-berghaenfling_02.JPG;Berghaenfling;singvogel;2
-blaessgans_01.JPG;Blaessgans;entenvogel;3
-blaessgans_02.JPG;Blaessgans;entenvogel;1
-blaessgans_03.JPG;Blaessgans;entenvogel;2
-blaesshuhn_01.JPG;Blaesshuhn;ralle;3
+berghaenfling_01.JPG;Berghänfling;singvogel;1
+berghaenfling_02.JPG;Berghänfling;singvogel;2
+blaessgans_01.JPG;Blässgans;entenvogel;3
+blaessgans_02.JPG;Blässgans;entenvogel;1
+blaessgans_03.JPG;Blässgans;entenvogel;2
+blaesshuhn_01.JPG;Blässhuhn;ralle;3
 blaumeise_01.JPG;Blaumeise;singvogel;1
 blaumeise_02.JPG;Blaumeise;singvogel;2
-bluthaenfling_01.JPG;Bluthaenfling;singvogel;3
-bluthaenfling_02.JPG;Bluthaenfling;singvogel;1
-bluthaenfling_03.JPG;Bluthaenfling;singvogel;2
-bluthaenfling_04.JPG;Bluthaenfling;singvogel;3
+bluthaenfling_01.JPG;Bluthänfling;singvogel;3
+bluthaenfling_02.JPG;Bluthänfling;singvogel;1
+bluthaenfling_03.JPG;Bluthänfling;singvogel;2
+bluthaenfling_04.JPG;Bluthänfling;singvogel;3
 brandgans_01.JPG;Brandgans;entenvogel;1
 brandgans_02.JPG;Brandgans;entenvogel;2
 brandgans_03.JPG;Brandgans;entenvogel;3
@@ -39,16 +39,16 @@ brandseeschwalbe_01.JPG;Brandseeschwalbe;seeschwalbe;2
 braunkehlchen_01.JPG;Braunkehlchen;singvogel;3
 braunkehlchen_02.JPG;Braunkehlchen;singvogel;1
 braunkehlchen_03.JPG;Braunkehlchen;singvogel;2
-bruchwasserlaeufer_01.JPG;Bruchwasserlaeufer;watvogel;3
+bruchwasserlaeufer_01.JPG;Bruchwasserläufer;watvogel;3
 buchfink_01.JPG;Buchfink;singvogel;1
 buchfink_02.JPG;Buchfink;singvogel;2
 dohle_01.JPG;Dohle;singvogel;3
 dohle_02.JPG;Dohle;singvogel;1
 dohle_03.JPG;Dohle;singvogel;2
-dorngrasmuecke_01.JPG;Dorngrasmuecke;singvogel;3
-dorngrasmuecke_02.JPG;Dorngrasmuecke;singvogel;1
-dorngrasmuecke_03.JPG;Dorngrasmuecke;singvogel;2
-dunkler wasserlaeufer_01.JPG;Dunkler wasserlaeufer;watvogel;3
+dorngrasmuecke_01.JPG;Dorngrasmücke;singvogel;3
+dorngrasmuecke_02.JPG;Dorngrasmücke;singvogel;1
+dorngrasmuecke_03.JPG;Dorngrasmücke;singvogel;2
+dunkler wasserlaeufer_01.JPG;Dunkler Wasserläufer;watvogel;3
 eiderente_01.JPG;Eiderente;entenvogel;1
 eiderente_02.JPG;Eiderente;entenvogel;2
 eiderente_03.JPG;Eiderente;entenvogel;3
@@ -72,7 +72,7 @@ flussseeschwalbe_02.JPG;Flussseeschwalbe;seeschwalbe;2
 flussseeschwalbe_03.JPG;Flussseeschwalbe;seeschwalbe;3
 flussseeschwalbe_04.JPG;Flussseeschwalbe;seeschwalbe;1
 flussseeschwalbe_05.JPG;Flussseeschwalbe;seeschwalbe;2
-grosser brachvogel_01.JPG;Grosser brachvogel;watvogel;3
-grosser brachvogel_02.JPG;Grosser brachvogel;watvogel;1
-grosser brachvogel_03.JPG;Grosser brachvogel;watvogel;2
-grosser brachvogel_04.JPG;Grosser brachvogel;watvogel;3
+grosser_brachvogel_01.JPG;Großer Brachvogel;watvogel;3
+grosser_brachvogel_02.JPG;Großer Brachvogel;watvogel;1
+grosser_brachvogel_03.JPG;Großer Brachvogel;watvogel;2
+grosser_brachvogel_04.JPG;Großer Brachvogel;watvogel;3
