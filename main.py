@@ -20,23 +20,23 @@ key_map = {
     pygame.K_8 : 7
 }
 
-birdRepo = BirdRepository("birds.csv")
-imageRepo = ImageRepository("images")
+bird_repo = BirdRepository("birds.csv")
+image_repo = ImageRepository("images")
 gui_proc = GUIProcessor(display_width, display_height)
 clock = pygame.time.Clock()
 
 
-game = Game(birdRepo.no_of_birds(), no_questions, no_answers)
+game = Game(bird_repo.no_of_birds(), no_questions, no_answers)
 
 for q in range(0, no_questions):
     bird_id = game.get_bird_id_of_question(q)
-    bird = birdRepo.find_bird_by_id(bird_id)
-    image = imageRepo.find_image_by_name(bird.get_filename())
+    bird = bird_repo.find_bird_by_id(bird_id)
+    image = image_repo.find_image_by_name(bird.get_filename())
     gui_proc.clear()
     gui_proc.set_image(image)
     for a in range(0, no_answers):
         answer_id = game.get_bird_id_of_answer_of_question_(q, a)
-        bird_answer = birdRepo.find_bird_by_id(answer_id)
+        bird_answer = bird_repo.find_bird_by_id(answer_id)
         gui_proc.set_nth_text(a, bird_answer.get_name())
 
     gui_proc.update()
