@@ -18,7 +18,7 @@ class Game:
         for q in range(0, no_questions):
             # Nächsten Vogel zufällig bestimmen (ohne Wiederholung)
             while True:
-                image_id_candidate = random.randint(0, no_images-1)
+                image_id_candidate = random.randint(0, no_images-1)             #Zahlen
                 if (not (image_id_candidate in self.__question_bird_ids)):
                     self.__question_bird_ids[q] = image_id_candidate
                     break;
@@ -106,4 +106,3 @@ class Game:
 #               " -> " + birdRepo.find_bird_by_id(bird_id_answer).get_name() +
 #               " -> " + str(game.is_correct(i, j)))
 #     print("=======================================")
-
