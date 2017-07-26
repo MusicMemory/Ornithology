@@ -1,4 +1,5 @@
 import pygame
+import sys
 from pygame.rect import Rect
 
 black = (0, 0, 0)
