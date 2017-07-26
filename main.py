@@ -39,7 +39,7 @@ while not keypressed:
                 difficulty += 1
                 print("keymap",key_map[event.key])
                 print("difficulty",difficulty)
-                if difficulty >= 1 & difficulty <= 3:
+                if difficulty < 1 & difficulty > 3:
                     continue
             except:
                 continue
