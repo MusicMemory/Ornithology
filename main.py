@@ -7,8 +7,9 @@ from gui.GUIProcessor import GUIProcessor
 pygame.init()
 display_width = 800
 display_height = 800
-no_questions = 10;
-no_answers = 4;
+no_questions = 10
+no_answers = 4
+difficulty = 1
 key_map = {
     pygame.K_1 : 0,
     pygame.K_2 : 1,
@@ -20,26 +21,24 @@ key_map = {
     pygame.K_8 : 7
 }
 
-bird_repo = BirdRepository("birds.csv")
-image_repo = ImageRepository("images")
-gui_proc = GUIProcessor(display_width, display_height)
+bird_repository = BirdRepository("birds.csv")
+image_repository = ImageRepository("images")
+gui_processor = GUIProcessor(display_width, display_height)
+
 clock = pygame.time.Clock()
+game = Game(bird_repository.no_birds(),no_questions,no_answers,difficulty)
 
+for q in range(no_questions):
+    question,answers = game.get_question(q)
+    bird = bird_repository.get_bird_by_id(question)
+    image = image_repository.load_image(bird.get_filename())
+    gui_processor.clear()
+    gui_processor.set_image(image)
+    for a in range(len(answers)):
+        bird_answer = bird_repository.get_bird_by_id(answers[a])
+        gui_processor.set_nth_text(a,bird_answer.get_name())
 
-game = Game(bird_repo.no_of_birds(), no_questions, no_answers)
-
-for q in range(0, no_questions):
-    bird_id = game.get_bird_id_of_question(q)
-    bird = bird_repo.find_bird_by_id(bird_id)
-    image = image_repo.find_image_by_name(bird.get_filename())
-    gui_proc.clear()
-    gui_proc.set_image(image)
-    for a in range(0, no_answers):
-        answer_id = game.get_bird_id_of_answer_of_question_(q, a)
-        bird_answer = bird_repo.find_bird_by_id(answer_id)
-        gui_proc.set_nth_text(a, bird_answer.get_name())
-
-    gui_proc.update()
+    gui_processor.update()
     clock.tick()
 
     keypressed = False
@@ -48,7 +47,6 @@ for q in range(0, no_questions):
             if event.type == pygame.QUIT:
                 pygame.quit()
                 quit()
-
             if event.type == pygame.KEYDOWN:
                 try:
                     answer = key_map[event.key]
@@ -58,18 +56,17 @@ for q in range(0, no_questions):
                     continue
 
                 keypressed = True
-                if game.is_correct(q, answer):
-                    gui_proc.alert(True, bird.get_difficulty())
+                if game.is_correct(q,answer):
                     game.add_points(bird.get_difficulty())
+                    gui_processor.alert(True,bird.get_difficulty())
                 else:
-                    gui_proc.alert(False, 0)
+                    gui_processor.alert(False,0)
 
-            gui_proc.update()
+            gui_processor.update()
             pygame.time.wait(500)
-            # clock.tick(30)
 
-gui_proc.final(game.get_points())
-gui_proc.update()
+gui_processor.final(game.get_points())
+gui_processor.update()
 
 keypressed = False
 while not keypressed:

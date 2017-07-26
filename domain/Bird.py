@@ -1,7 +1,5 @@
 class Bird:
     def __init__(self, filename, name, order, difficulty):
-        # in python gint es keine expliziten konstruktoren
-        # __name meint private, _name protected, name public
         self.__filename = filename
         self.__name = name
         self.__order = order
