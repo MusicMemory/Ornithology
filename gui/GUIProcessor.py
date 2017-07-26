@@ -58,5 +58,11 @@ class GUIProcessor:
         textsurface = self.font_correct.render(text, True, white)
         self.screen.blit(textsurface,(250, 400))
 
+    def start(self):
+        self.screen.fill(black)
+        text = "Wähle die Schwierigkeit auf der Tastatur. Schwierigkeiten: 1-3."
+        textsurface = self.font_correct.render(text,True,white)
+        self.screen.blit(textsurface,(250,400))
+
     def update(self):
         pygame.display.update()

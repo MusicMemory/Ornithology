@@ -9,7 +9,6 @@ display_width = 800
 display_height = 800
 no_questions = 10
 no_answers = 4
-difficulty = 1
 key_map = {
     pygame.K_1 : 0,
     pygame.K_2 : 1,
@@ -24,10 +23,29 @@ key_map = {
 bird_repository = BirdRepository("birds.csv")
 image_repository = ImageRepository("images")
 gui_processor = GUIProcessor(display_width, display_height)
-
 clock = pygame.time.Clock()
+#start:
+gui_processor.start()
+gui_processor.update()
+keypressed = False
+while not keypressed:
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            pygame.quit()
+            quit()
+        if event.type == pygame.KEYDOWN:
+            try:
+                difficulty = key_map[event.key]
+                difficulty += 1
+                print("keymap",key_map[event.key])
+                print("difficulty",difficulty)
+                if difficulty >= 1 & difficulty <= 3:
+                    continue
+            except:
+                continue
+            keypressed = True
+#Spiel:
 game = Game(bird_repository.no_birds(),no_questions,no_answers,difficulty)
-
 for q in range(no_questions):
     question,answers = game.get_question(q)
     bird = bird_repository.get_bird_by_id(question)
@@ -64,7 +82,7 @@ for q in range(no_questions):
 
             gui_processor.update()
             pygame.time.wait(500)
-
+#Final
 gui_processor.final(game.get_points())
 gui_processor.update()
 
