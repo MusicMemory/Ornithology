@@ -6,8 +6,8 @@ class Game:
     def __init__(self,no_birds,no_questions,no_answers,difficulty):
         self.__points = 0
         self.__no_answers = no_answers
-        self.__questions = [-1 for i in range(no_questions)]
-        self.__answers = [-1 for i in range(no_questions)]
+        self.__questions = [None for i in range(no_questions)]
+        self.__answers = [None for i in range(no_questions)]
         self.__bird_repository = BirdRepository()
         for q in range(0,no_questions):
             #Liste __questions mit Zahlen (ID) füllen ohne Wiederholung
