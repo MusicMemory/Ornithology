@@ -10,7 +10,7 @@ class Game:
         self.__answers = [-1 for i in range(no_questions)]
         self.__bird_repository = BirdRepository()
         for q in range(0,no_questions):
-            #Liste mit Zahlen füllen ohne Wiederholung
+            #Liste __questions mit Zahlen (ID) füllen ohne Wiederholung
             while True:
                 bird_id_candidate = r.randint(0,no_birds-1)
                 bird_candidate = self.__bird_repository.get_bird_by_id(bird_id_candidate)
@@ -20,6 +20,8 @@ class Game:
                     if bird_candidate.get_difficulty() == difficulty:
                         self.__questions[q] = bird_id_candidate
                         break;
+            #Liste __answers mit Zahlen (ID) füllen ohne Wiederholung
+            #ohne gleichen Namen
             answer_list = []
             while len(answer_list) < no_answers:
                 bird_id_candidate = r.randint(0,no_birds-1)
@@ -28,7 +30,7 @@ class Game:
                 else:
                     is_different = True
                     for a in answer_list:
-                        if bird_id_candidate == a:
+                        if self.__bird_repository.get_bird_by_id(bird_id_candidate).get_name() == self.__bird_repository.get_bird_by_id(a).get_name():
                             is_different = False
                             break;
                     if is_different:
