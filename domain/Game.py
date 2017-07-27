@@ -41,7 +41,6 @@ class Game:
                         break;
                 if is_different:
                     answer_list.append(bird_id_candidate)
-
             # richtige Antwort zufällig platzieren
             pos_right_answer = r.randint(0, no_answers - 1)
             answer_list[pos_right_answer] = self.__questions[q]

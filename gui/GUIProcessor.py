@@ -1,5 +1,4 @@
 import pygame
-import sys
 from pygame.rect import Rect
 
 black = (0, 0, 0)
@@ -17,15 +16,22 @@ class GUIProcessor:
         self.screen = screen = pygame.display.set_mode((width,height))
         self.width = width
         self.height = height
-        self.margin_left = width // 8;
+        self.margin_left = width // 10;
         self.font_answer = pygame.font.SysFont('Comic Sans MS', 30)
         self.font_correct = pygame.font.SysFont('Comic Sans MS', 40)
+        self.font_start = pygame.font.SysFont('Comic Sans MS',20)
 
     def clear(self):
         self.screen.fill(black)
 
     def clear_by_color(self,color):
         self.screen.fill(color)
+
+    def set_logo(self,logo):
+        rect = logo.get_rect()
+        #x zentriert
+        w = rect.width//2
+        self.screen.blit(logo, (self.width // 2 - w, 50))
 
     def set_image(self, image):
         image_scaled = pygame.transform.scale(image, (600, 400))
@@ -61,8 +67,12 @@ class GUIProcessor:
 
     def start(self):
         self.screen.fill(black)
-        text = "Wähle die Schwierigkeit auf der Tastatur. Schwierigkeiten: 1-3."
-        textsurface = self.font_correct.render(text,True,white)
+        text = "Wähle die Schwierigkeit auf der Tastatur."
+        textsurface = self.font_start.render(text,True,white)
+        textsurface.get_rect().center = (100,100)
+        #self.screen.blit(textsurface,(textsurface.get_rect().centerx),150)
+        text = "Schwierigkeiten: 1-3."
+        textsurface = self.font_start.render(text,True,white)
         self.screen.blit(textsurface,(250,400))
 
     def update(self):
