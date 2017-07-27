@@ -26,17 +26,16 @@ class Game:
             answer_list = []
             while len(answer_list) < no_answers:
                 bird_id_candidate = r.randint(0,no_birds-1)
-                if len(answer_list) == 0:
+                if bird_repository.get_bird_by_id(bird_id_candidate).get_name() == bird_repository.get_bird_by_id(self.__questions[q]).get_name():
+                    continue
+                is_different = True
+                for a in answer_list:
+                    if bird_repository.get_bird_by_id(bird_id_candidate).get_name() == bird_repository.get_bird_by_id(a).get_name():
+                        is_different = False
+                        break;
+                if is_different:
                     answer_list.append(bird_id_candidate)
-                else:
-                    is_different = True
-                    for a in answer_list:
-                        if bird_repository.get_bird_by_id(bird_id_candidate).get_name() == bird_repository.get_bird_by_id(a).get_name():
-                            is_different = False
-                            break;
-                    if is_different:
-                        if bird_repository.get_bird_by_id(bird_id_candidate).get_name() != bird_repository.get_bird_by_id(self.__questions[q]).get_name():
-                            answer_list.append(bird_id_candidate)
+
             #richtige Antwort zufällig platzieren
             pos_right_answer = r.randint(0,no_answers-1)
             answer_list[pos_right_answer] = self.__questions[q]
