@@ -1,4 +1,6 @@
 import pygame
+import sys
+
 from domain.BirdRepository import BirdRepository
 from domain.Game import Game
 from domain.ImageRepository import ImageRepository
@@ -64,7 +66,7 @@ for q in range(no_questions):
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 pygame.quit()
-                quit()
+                sys.exit()
             if event.type == pygame.KEYDOWN:
                 try:
                     answer = key_map[event.key]
@@ -91,4 +93,4 @@ while not keypressed:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             pygame.quit()
-            quit()
+            sys.exit()
