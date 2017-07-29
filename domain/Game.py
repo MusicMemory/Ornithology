@@ -28,17 +28,37 @@ class Game:
                 raise Exception("Probably there are not enough bird present with difficulty " + str(difficulty))
             # Liste __answers mit Zahlen (ID) füllen ohne Wiederholung
             # ohne gleichen Namen
+            question_name = bird_repository.get_bird_by_id(self.__questions[q]).get_name()
+            question_order = bird_repository.get_bird_by_id(self.__questions[q]).get_order()
             answer_list = []
-            while len(answer_list) < no_answers:
-                bird_id_candidate = r.randint(0, no_birds - 1)
+            # birds mit dersellben Ordnung hinzufügen (so viele wie geht, noch nicht gemischt)
+            bird_ids_same_order = bird_repository.get_bird_ids_by_order(question_order)
+            for bird_id_candidate in bird_ids_same_order:
+                if len(answer_list) == self.__no_answers:
+                    break
                 bird_name_candidate = bird_repository.get_bird_by_id(bird_id_candidate).get_name()
-                if bird_name_candidate == bird_repository.get_bird_by_id(self.__questions[q]).get_name():
+                if bird_name_candidate == question_name:
                     continue
                 is_different = True
                 for a in answer_list:
                     if bird_name_candidate == bird_repository.get_bird_by_id(a).get_name():
                         is_different = False
-                        break;
+                        break
+                if is_different:
+                    answer_list.append(bird_id_candidate)
+            #restliche freie Plätze mit zufälligen besetzen
+            while len(answer_list) < no_answers:
+                bird_id_candidate = r.randint(0, no_birds - 1)
+                bird_name_candidate = bird_repository.get_bird_by_id(bird_id_candidate).get_name()
+                bird_order_candidate = bird_repository.get_bird_by_id(bird_id_candidate).get_order()
+                if bird_name_candidate == bird_repository.get_bird_by_id(self.__questions[q]).get_name():
+                    continue
+
+                is_different = True
+                for a in answer_list:
+                    if bird_name_candidate == bird_repository.get_bird_by_id(a).get_name():
+                        is_different = False
+                        break
                 if is_different:
                     answer_list.append(bird_id_candidate)
             # richtige Antwort zufällig platzieren
