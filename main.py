@@ -39,8 +39,6 @@ while not keypressed:
             try:
                 difficulty = key_map[event.key]
                 difficulty += 1
-                print("keymap",key_map[event.key])
-                print("difficulty",difficulty)
                 if difficulty < 1 & difficulty > 3:
                     continue
             except:

@@ -43,7 +43,7 @@ class Game:
                 for a in answer_list:
                     if bird_name_candidate == bird_repository.get_bird_by_id(a).get_name():
                         is_different = False
-                        break
+                        continue
                 if is_different:
                     answer_list.append(bird_id_candidate)
             #restliche freie Plätze mit zufälligen besetzen
@@ -51,9 +51,8 @@ class Game:
                 bird_id_candidate = r.randint(0, no_birds - 1)
                 bird_name_candidate = bird_repository.get_bird_by_id(bird_id_candidate).get_name()
                 bird_order_candidate = bird_repository.get_bird_by_id(bird_id_candidate).get_order()
-                if bird_name_candidate == bird_repository.get_bird_by_id(self.__questions[q]).get_name():
+                if bird_name_candidate == question_name:
                     continue
-
                 is_different = True
                 for a in answer_list:
                     if bird_name_candidate == bird_repository.get_bird_by_id(a).get_name():
@@ -61,12 +60,18 @@ class Game:
                         break
                 if is_different:
                     answer_list.append(bird_id_candidate)
-            # richtige Antwort zufällig platzieren
-            pos_right_answer = r.randint(0, no_answers - 1)
-            answer_list[pos_right_answer] = self.__questions[q]
+            # richtige Antwort zufällig platzieren, wenn da, dann auf einen Platz mit anderer Ordnung
+            right_answer_exists = False
+            for pos,a in enumerate(answer_list):
+                if bird_repository.get_bird_by_id(a).get_order() != question_order:
+                    answer_list[pos] = self.__questions[q]
+                    right_answer_exists = True
+                    break
+            if not right_answer_exists:
+                pos_right_answer = r.randint(0, no_answers - 1)
+                answer_list[pos_right_answer] = self.__questions[q]
+            #Letzter Schritt:
             self.__answers[q] = answer_list
-        print(self.__questions)
-        print(self.__answers)
 
     def get_question(self, q):
         return self.__questions[q], self.__answers[q]
