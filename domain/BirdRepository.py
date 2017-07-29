@@ -18,6 +18,13 @@ class BirdRepository(metaclass=Singleton):
     def no_birds(self):
         return len(self.__birds)
 
+    def no_birds_with_order(self,order):
+        n = 0
+        for bird in self.__birds:
+            if bird.get_order() == order:
+                n += 1
+        return n
+
     def init(self, csvfile_name):
         with open(csvfile_name,encoding='utf-8') as csvfile:
             readCSV = csv.reader(csvfile, delimiter=';')
