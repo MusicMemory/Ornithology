@@ -33,6 +33,9 @@ class Game:
             answer_list = []
             # birds mit dersellben Ordnung hinzufügen (so viele wie geht, noch nicht gemischt)
             bird_ids_same_order = bird_repository.get_bird_ids_by_order(question_order)
+            print(bird_ids_same_order)
+            r.shuffle(bird_ids_same_order,r.random)
+            print(bird_ids_same_order)
             for bird_id_candidate in bird_ids_same_order:
                 if len(answer_list) == self.__no_answers:
                     break
