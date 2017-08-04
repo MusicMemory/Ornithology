@@ -58,7 +58,7 @@ print("Start of Ornithologie")
 bird_repository = BirdRepository("birds.csv")
 image_repository = ImageRepository("images")
 gui_processor = GUIProcessor(display_width, display_height, no_answers)
-clock = pygame.time.Clock()
+# clock = pygame.time.Clock()
 
 again = True
 while again:
@@ -82,8 +82,10 @@ while again:
             gui_processor.set_nth_text(a,bird_answer.get_name())
 
         gui_processor.update()
-        clock.tick()
-        answer = wait_on_key_and_map(key_map_answer)
+
+        answer = -1;
+        while answer < 0 or answer >= no_answers:
+            answer = wait_on_key_and_map(key_map_answer)
 
         if game.is_correct(q,answer):
             game.add_points(bird.get_difficulty())
