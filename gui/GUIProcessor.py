@@ -54,10 +54,8 @@ class GUIProcessor:
 
     def set_nth_text(self,n,text):
         textsurface = self.font_answer.render(str(n+1) + '. ' + text, True, white)
-
         rest_space_box_to_bottom = self.height - self.margin_bottom - self.text_margin_top
         answer_height = rest_space_box_to_bottom // self.no_answer_lines
-
         text_y = self.text_margin_top + n // 2 * answer_height
         if (n % 2 == 0):
             self.screen.blit(textsurface,(self.margin_left, text_y))
@@ -85,7 +83,10 @@ class GUIProcessor:
     def show_start_page(self):
         self.screen.fill(black)
         self.printTextRel("Ornitologie-Test", self.font_header, white, (0, 0))
-        self.printTextRel("Wählen Sie die Schwierigkeit auf der Tastatur (1 - 3)", self.font_start, white, (0, 20))
+        image = pygame.image.load("images/niclas.jpg")
+        image_scaled = pygame.transform.scale(image, (self.width*3//5, self.width*3//5))
+        self.screen.blit(image_scaled, (self.width*1//5, self.width//5))
+        self.printTextRel("Wählen Sie die Schwierigkeit auf der Tastatur (1 - 3)", self.font_start, white, (0, 90))
 
     def update(self):
         pygame.display.update()
