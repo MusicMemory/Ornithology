@@ -14,10 +14,22 @@ for file in os.listdir('images'):
 APP = ['main.py']
 DATA_FILES = ['birds.csv', ('images', bird_names)]
 
-OPTIONS = {}
+OPTIONS = {
+    'iconfile':'ornithology.icns',
+    'plist': {'CFBundleShortVersionString':'1.0',
+              'CFBundleName': 'Ornithology',
+              'CFBundleDisplayName': 'Ornithology',
+              'CFBundleGetInfoString': "Ornithology",
+              'CFBundleIdentifier': "de.niederdrenk.ornithology",
+              'CFBundleVersion': "1.0",
+              'CFBundleShortVersionString': "1.0",
+              'NSHumanReadableCopyright': u"Copyright © 2017, Niclas Niederdrenk, All Rights Reserved"
+              }
+}
 
 setup(
     app=APP,
+    name='Ornithology',
     data_files=DATA_FILES,
     options={'py2app': OPTIONS},
     setup_requires=['py2app'],
