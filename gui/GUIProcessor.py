@@ -82,7 +82,7 @@ class GUIProcessor:
 
     def show_start_page(self):
         self.screen.fill(black)
-        self.printTextRel("Ornitologie-Test", self.font_header, white, (0, 0))
+        self.printTextRel("Ornithology", self.font_header, white, (0, 0))
         image = pygame.image.load("images/niclas.jpg")
         image_scaled = pygame.transform.scale(image, (self.width*3//5, self.width*3//5))
         self.screen.blit(image_scaled, (self.width*1//5, self.width//5))
