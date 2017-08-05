@@ -15,7 +15,7 @@ def wait_on_key_and_map(key_map):
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 pygame.quit()
-                quit()
+                sys.exit()
             if event.type == pygame.KEYDOWN:
                 try:
                     return key_map[event.key]
